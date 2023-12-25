@@ -4,4 +4,6 @@ spring:
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
 
-server.port: 8081
+server.port: 8082
+
+topics: ${KAFKA_SUBSCRIBE_TOPICS}
