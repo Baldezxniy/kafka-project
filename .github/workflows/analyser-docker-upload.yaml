@@ -2,8 +2,8 @@ name: Docker Analyser image CI
 
 on:
   push:
-    branches: ["main"]
-  
+    branches: ["main", "dev"]
+
 jobs:
   build-analyser:
     runs-on: ubuntu-20.04
@@ -18,7 +18,7 @@ jobs:
         with:
           image: ${{ secrets.DOCKERHUB_USERNAME }}/data-analyser-service
           tags: 0.0.$GITHUB_RUN_NUMBER, latest
-          dockerfile: ../data-analyser-service/Dockerfile
+          dockerfile: ./data-analyser-service/Dockerfile
           registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -36,7 +36,7 @@ jobs:
         with:
           image: ${{ secrets.DOCKERHUB_USERNAME }}/data-generator-service
           tags: 0.0.$GITHUB_RUN_NUMBER, latest
-          dockerfile: ../data-generator-service/Dockerfile
+          dockerfile: ./data-generator-service/Dockerfile
           registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
