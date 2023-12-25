@@ -46,6 +46,13 @@ dependencies {
     compileOnly "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 }
 
+
+bootJar {
+    layered {
+        enabled = true
+    }
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }
