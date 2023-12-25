@@ -8,7 +8,8 @@ RUN ./gradlew build
 # Stage 2: Extract Dependencies
 FROM eclipse-temurin:17.0.5_8-jre-focal AS extract
 WORKDIR extracted
-COPY --from=build /home/gradle/project/build/libs/*.jar app.jar
+COPY --from=build /home/gradle/project/data-analyser-service/build/libs/*.jar app.jar
+#COPY --from=build /home/gradle/project/build/libs/*.jar app.jar
 RUN java -Djarmode=layertools -jar app.jar extract
 
 # Stage 3: Final Stage
