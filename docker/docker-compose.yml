@@ -1,0 +1,19 @@
+version: '3'
+
+networks:
+  app:
+    driver: bridge
+
+volumes:
+  db-data:
+    driver: local
+  redis-data:
+    driver: local
+  kafka-data:
+    driver: local
+  zookeeper-data:
+    driver: local
+
+services:
+  generator:
+    image: ''
