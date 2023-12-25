@@ -16,7 +16,7 @@ volumes:
 
 services:
   generator:
-    image: 'baldezxniy/data-generator-service'
+    image: 'baldezxniy/data-generator-service:latest'
     networks:
       - app
     depends_on:
