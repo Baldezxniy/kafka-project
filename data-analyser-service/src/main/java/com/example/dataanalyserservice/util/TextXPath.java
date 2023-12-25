@@ -1,10 +1,10 @@
-package com.example.datageneratorservice.util;
+package com.example.dataanalyserservice.util;
 
 import com.jcabi.xml.XML;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class TestXPath {
+public class TextXPath {
   private final XML xml;
   private final String node;
 

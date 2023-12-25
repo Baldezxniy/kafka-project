@@ -1,6 +1,6 @@
 package com.example.datageneratorservice.config;
 
-import com.example.datageneratorservice.util.TestXPath;
+import com.example.datageneratorservice.util.TextXPath;
 import com.jcabi.xml.XML;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -71,9 +71,9 @@ public class KafkaConfig {
 
     props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, servers);
     props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
-            new TestXPath(this.settings, "//keySerializer").toString());
+            new TextXPath(this.settings, "//keySerializer").toString());
     props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
-            new TestXPath(this.settings, "//valueSerializer").toString());
+            new TextXPath(this.settings, "//valueSerializer").toString());
 
     return SenderOptions.create(props);
   }
