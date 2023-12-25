@@ -1,1 +1,2 @@
 include ':data-generator-service'
+include ':data-analyser-service'
