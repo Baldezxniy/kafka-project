@@ -8,7 +8,10 @@ RUN ./gradlew build
 # Stage 2: Extract Dependencies
 FROM eclipse-temurin:17.0.5_8-jre-focal AS extract
 WORKDIR extracted
+RUN ls -la /home/gradle/project/data-generator-service/build/libs/
+#COPY --from=build /home/gradle/project/data-generator-service/build/libs/*.jar app.jar
 COPY --from=build /home/gradle/project/data-generator-service/build/libs/*.jar app.jar
+#COPY --from=build /home/gradle/project/data-generator-service/build/libs/data-generator-service-0.0.1-SNAPSHOT.jar app.jar
 RUN java -Djarmode=layertools -jar app.jar extract
 
 # Stage 3: Final Stage
@@ -21,3 +24,5 @@ COPY --from=extract extracted/application/ ./
 
 EXPOSE 8080
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+#ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+#ENTRYPOINT ["java", "-jar", "application.jar"]
